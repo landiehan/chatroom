@@ -7,13 +7,16 @@ const app = express();
 const httpServer = http.createServer(app);
 const io = socketIO(httpServer, {
   cors: {
-    orgin: 'http://localhost:3000',
+    origin: 'https://landay-chatroom.herokuapp.com/',
+    methods: ['GET', 'POST'],
   },
 });
 
-app.use(express.static(path.resolve(__dirname, '../build')));
+app.use(express.static(path.resolve(__dirname, '/build')));
 
-app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'));
+app.get('/', (req, res) =>
+  res.sendFile(path.resolve(__dirname, 'build', 'index.html'))
+);
 
 const users = [];
 

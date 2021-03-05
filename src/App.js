@@ -4,7 +4,8 @@ import Login from './components/Login/Login';
 import { io } from 'socket.io-client';
 import Chatroom from './components/Chatroom/Chatroom';
 
-const socket = io('http://localhost:2333');
+// const socket = io('http://localhost:2333');
+const socket = io('https://landay-chatroom.herokuapp.com/'); // run on Heroku
 
 function App() {
   const [username, setUsername] = useState('');
